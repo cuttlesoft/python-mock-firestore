@@ -30,8 +30,7 @@ class CollectionReference:
 
     def add(self, document_data: Dict, document_id: str = None) \
             -> Tuple[Timestamp, DocumentReference]:
-        if document_id is None:
-            document_id = document_data.get('id', generate_random_string())
+        document_id = generate_random_string()
         collection = get_by_path(self._data, self._path)
         new_path = self._path + [document_id]
         if document_id in collection:
